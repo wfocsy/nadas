@@ -5,13 +5,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="./faviconok/favicon-96x96.png">
+
+
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="style3.css">
-
-    <title>MobilFirstGrid</title>
+    <link rel="stylesheet" href="styleSlide.css">
+    <title>Nádas Beach</title>
 </head>
 
 <body>
+    <nav class="navbar">
+        <span class="open-slide">
+            <a href="#" onclick="openSideMenu()">
+                <svg width="50" height="50">
+                    <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+                    <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+                    <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                </svg>
+            </a>
+        </span>
+        <ul class="navbar-nav">
+
+
+            <li>
+                <a href="#">Menu1</a>
+            </li>
+            <li>
+                <a href="#">Menu2</a>
+            </li>
+            <li>
+                <a href="#">Menu3</a>
+            </li>
+            <li>
+                <a href="#">Menu4</a>
+            </li>
+
+        </ul>
+        <div class="fbSliderIframeBtn">
+
+            <a href="#" onclick="openfBiframe()">
+
+                <img src="./flogo.jpg" alt="">
+
+            </a>
+        </div>
+    </nav>
+    <!--******************** slide-menu ablak ******************************-->
+    <div id="slide-menu" class="slide-menu-nav">
+        <a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>
+        <a href="#">Menu1</a>
+        <a href="#">Menu2</a>
+        <a href="#">Menu3</a>
+        <a href="#">Menu4</a>
+    </div>
+
+    <!-- *********************Fb iFrame ablak ******************************-->
+
+    <div id="fBslide" class="fbslide-nav">
+        <!-- <a href="#" class="btn-fbclose" onclick="closefBiframe()">&times;</a> -->
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnadasbeach&tabs=timeline&width=300&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                    width="320" height="800" style="border:none;overflow:hidden;" scrolling="yes" frameborder="0" allowTransparency="false"></iframe>
+       
+    </div>
+
+
+
+    <script>
+        /* Slide menü mozgatás Script*/
+
+        let nonActiveLeftSlide = true;
+        // $('.btn-new').click(function(){});
+
+        function closeAllSideMenu() {
+            if (nonActiveLeftSlide) {
+                return;
+            } else {
+                closeSideMenu();
+            }
+        }
+
+        function openSideMenu() {
+            if (nonActiveLeftSlide) {
+                document.getElementById('slide-menu').style.width = '250px';
+                nonActiveLeftSlide = false;
+                closefBiframe();
+            } else { closeSideMenu() }
+            // document.getElementById('main').style.marginLeft='250px';
+        }
+
+        function closeSideMenu() {
+            document.getElementById('slide-menu').style.width = '0';
+            nonActiveLeftSlide = true;
+            // document.getElementById('main').style.marginLeft='0';
+        }  
+    </script>
+
+
+    <script>
+        let nonActiveFbSlide = true;
+        function openfBiframe() {
+            if (nonActiveFbSlide) {
+
+                document.getElementById('fBslide').style.width = '320px';
+                nonActiveFbSlide = false;
+                closeSideMenu();
+                // document.getElementById('main').style.marginLeft='250px';
+
+            } else {
+                closefBiframe();
+            }
+        }
+
+        function closefBiframe() {
+            document.getElementById('fBslide').style.width = '0';
+            // document.getElementById('main').style.marginLeft='0';
+            nonActiveFbSlide = true;
+        }
+
+    </script>
+
+
+
+
+
+
     <!-- Header Showcase -->
     <header id="showcase" class="grid">
         <div class="bg-image"></div>
@@ -37,10 +156,13 @@
                     A Tiszaparton....
                 </h2>
                 <div class="content-text">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolorem tempora, ipsam reiciendis quia sed mollitia beatae
-                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur iure sint aliquam harum similique, quisquam esse reiciendis quidem impedit quae repellat soluta aut qui pariatur. Quod accusantium distinctio voluptatibus culpa. sit adipisci, dolores molestias. Reiciendis debitis, qui illum inventore consequatur nobis sequi doloremque?
-                </p>
-            </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolorem tempora, ipsam reiciendis
+                        quia sed mollitia beatae Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur iure
+                        sint aliquam harum similique, quisquam esse reiciendis quidem impedit quae repellat soluta aut qui
+                        pariatur. Quod accusantium distinctio voluptatibus culpa. sit adipisci, dolores molestias. Reiciendis
+                        debitis, qui illum inventore consequatur nobis sequi doloremque?
+                    </p>
+                </div>
             </div>
 
         </section>
@@ -115,7 +237,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos obcaecati voluptatibus alias ipsum nulla deleniti
                     veniam ea fugit consequatur ad!</p>
             </div>
-            
+
         </section>
     </main>
     <!-- footer -->
